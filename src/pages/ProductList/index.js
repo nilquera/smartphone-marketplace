@@ -3,14 +3,22 @@ import { useFetchProducts } from "hooks";
 import "./styles.css";
 import ProductInList from "./ProductInList";
 
+const ITEMS_PAGE = 9;
+
 export default function ProductList() {
   const [search, setSearch] = useState("");
   const { loading, productList } = useFetchProducts();
   const [filteredProductList, setFilteredProductList] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [pages, setPages] = useState(12);
 
   const handleSearch = (evt) => {
     setSearch(evt.target.value);
   };
+
+  useEffect(() => {
+    setPages((filteredProductList.length + ITEMS_PAGE - 1) / ITEMS_PAGE);
+  }, [filteredProductList]);
 
   useEffect(() => {
     setFilteredProductList(productList);
@@ -27,6 +35,14 @@ export default function ProductList() {
     }
   }, [search]);
 
+  const increaseCurrentPage = () => {
+    if (currentPage !== pages - 1) setCurrentPage(currentPage + 1);
+  };
+
+  const decreaseCurrentPage = () => {
+    if (currentPage !== 0) setCurrentPage(currentPage - 1);
+  };
+
   return (
     <div>
       <input
@@ -37,11 +53,29 @@ export default function ProductList() {
       {loading ? (
         <h1>Loading</h1>
       ) : (
-        <div className="product-grid">
-          {filteredProductList.map((product, key) => {
-            return <ProductInList key={key} product={product} />;
-          })}
-        </div>
+        <>
+          <div className="pagination">
+            <div className="pagination-button" onClick={decreaseCurrentPage}>
+              <span>&laquo;</span>
+            </div>
+            <div className="pagination-button" onClick={increaseCurrentPage}>
+              <span>&raquo;</span>
+            </div>
+          </div>
+          <div className="product-grid">
+            {filteredProductList
+              .slice(
+                currentPage * ITEMS_PAGE,
+                currentPage * ITEMS_PAGE +
+                  (currentPage !== pages - 1
+                    ? ITEMS_PAGE
+                    : filteredProductList.length % ITEMS_PAGE)
+              )
+              .map((product, key) => {
+                return <ProductInList key={key} product={product} />;
+              })}
+          </div>
+        </>
       )}
     </div>
   );
