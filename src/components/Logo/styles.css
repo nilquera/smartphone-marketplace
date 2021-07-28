@@ -1,0 +1,5 @@
+.logo {
+  margin-left: 20px;
+  width: calc(35px + 8vmin);
+  background-color: aliceblue;
+}

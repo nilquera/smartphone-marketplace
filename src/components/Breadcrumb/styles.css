@@ -1,0 +1,8 @@
+.breadcrumb {
+  background-color: aliceblue;
+  min-width: 40vmin;
+}
+
+.breadcrumb a {
+  margin-right: 10px;
+}
