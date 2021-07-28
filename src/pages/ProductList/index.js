@@ -45,22 +45,26 @@ export default function ProductList() {
 
   return (
     <div>
-      <input
-        placeholder="filter by brand or model"
-        value={search}
-        onChange={handleSearch}
-      />
+      <div className="search-container">
+        <input
+          className="searchInput"
+          placeholder="filter by brand or model"
+          value={search}
+          onChange={handleSearch}
+          type="text"
+        />
+      </div>
       {loading ? (
         <h1>Loading</h1>
       ) : (
         <>
           <div className="pagination">
-            <div className="pagination-button" onClick={decreaseCurrentPage}>
-              <span>&laquo;</span>
-            </div>
-            <div className="pagination-button" onClick={increaseCurrentPage}>
-              <span>&raquo;</span>
-            </div>
+            <button className="pagination-button" onClick={decreaseCurrentPage}>
+              &laquo;
+            </button>
+            <button className="pagination-button" onClick={increaseCurrentPage}>
+              &raquo;
+            </button>
           </div>
           <div className="product-grid">
             {filteredProductList

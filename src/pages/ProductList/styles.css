@@ -3,6 +3,22 @@
   --product-grid-item-height: 249px;
 }
 
+.search-container {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.searchInput {
+  border: 1px solid #09f;
+  padding: 4px 16px;
+  font-size: 16px;
+  border-radius: 10px;
+  width: 60vw;
+  height: 25px;
+  max-width: 300px;
+}
+
 .product-grid {
   display: flex;
   flex-wrap: wrap;
@@ -50,10 +66,6 @@
 }
 
 .pagination {
-  display: inline-block;
-}
-
-.pagination {
   display: flex;
   justify-content: center;
 }
@@ -70,24 +82,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  font-size: 16px;
+  border: none;
+  border-radius: 10%;
 }
 
 .pagination-button:hover {
-  background-color: #ddd;
-}
-
-.pagination a {
-  /* display: inline-block; */
-  color: black;
-  float: left;
-  padding: 8px 16px;
-}
-
-.pagination a.active {
-  background-color: #4caf50;
-  color: white;
-}
-
-.pagination a:hover:not(.active) {
-  background-color: #ddd;
+  background-color: #09f;
 }
