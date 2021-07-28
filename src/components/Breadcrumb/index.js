@@ -29,8 +29,6 @@ export default function Breadcrumb() {
                   ...rest,
                 }));
 
-              console.log(crumbs);
-
               return (
                 <ul>
                   {crumbs.map(({ name, path }) => {
