@@ -1,20 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFetchProducts } from "hooks";
 import "./styles.css";
-import { Link } from "react-router-dom";
+import ProductInList from "./ProductInList";
 
 export default function ProductList() {
   const [search, setSearch] = useState("");
   const { loading, productList } = useFetchProducts();
+  const [filteredProductList, setFilteredProductList] = useState([]);
 
   const handleSearch = (evt) => {
     setSearch(evt.target.value);
   };
 
+  useEffect(() => {
+    setFilteredProductList(productList);
+  }, [productList]);
+
+  useEffect(() => {
+    if (search === "") setFilteredProductList(productList);
+    else {
+      setFilteredProductList(
+        productList.filter(({ model, brand }) => {
+          return model === search || brand === search;
+        })
+      );
+    }
+  }, [search]);
+
   return (
-    <div>
+    <div style={{ maxHeight: "100vh", overflowY: "scroll" }}>
       <input
-        placeholder="search smartphone"
+        placeholder="filter by brand or model"
         value={search}
         onChange={handleSearch}
       />
@@ -22,35 +38,11 @@ export default function ProductList() {
         <h1>Loading</h1>
       ) : (
         <div className="product-grid">
-          {productList.map(({ brand, model, imgUrl, price, id }, key) => {
-            return (
-              <ProductInList
-                key={key}
-                brand={brand}
-                model={model}
-                imgUrl={imgUrl}
-                price={price}
-                id={id}
-              />
-            );
+          {filteredProductList.map((product, key) => {
+            return <ProductInList key={key} product={product} />;
           })}
         </div>
       )}
-    </div>
-  );
-}
-
-function ProductInList({ brand, model, imgUrl, price, id }) {
-  return (
-    <div className="product-grid-item">
-      <Link to={`/details/${id}`}>
-        <img src={imgUrl} />
-      </Link>
-      <Link to={`/details/${id}`}>
-        <p>{model}</p>
-      </Link>
-      <p>{brand}</p>
-      <p>{price}</p>
     </div>
   );
 }
