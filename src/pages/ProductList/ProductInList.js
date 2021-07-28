@@ -7,11 +7,13 @@ export default function ProductInList({ product }) {
       <Link to={`/details/${id}`}>
         <img src={imgUrl} />
       </Link>
-      <Link to={`/details/${id}`}>
-        <p>{model}</p>
-      </Link>
-      <p>{brand}</p>
-      <p>{price !== "" ? `${price} €` : "Check in store"}</p>
+      <div className="product-grid-item-info">
+        <Link to={`/details/${id}`}>
+          <p>{model}</p>
+        </Link>
+        <p>{brand}</p>
+        <p>{price !== "" ? `${price} €` : "Check in store"}</p>
+      </div>
     </div>
   );
 }

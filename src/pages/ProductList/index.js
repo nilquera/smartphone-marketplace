@@ -28,7 +28,7 @@ export default function ProductList() {
   }, [search]);
 
   return (
-    <div style={{ maxHeight: "100vh", overflowY: "scroll" }}>
+    <div>
       <input
         placeholder="filter by brand or model"
         value={search}

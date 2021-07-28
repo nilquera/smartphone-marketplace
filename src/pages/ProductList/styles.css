@@ -1,3 +1,7 @@
+:root {
+  --product-grid-item-width: 150px;
+}
+
 .product-grid {
   display: flex;
   flex-wrap: wrap;
@@ -5,10 +9,20 @@
 }
 
 .product-grid-item {
-  flex: 1 0 21%; /* explanation below */
-  margin: 20px;
-  /* height: 100px; */
-  /* background-color: rgb(139, 139, 139); */
+  flex: 1 0 22%;
+  margin: 20px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-grid-item img {
+  width: var(--product-grid-item-width);
+}
+
+.product-grid-item .product-grid-item-info {
+  width: var(--product-grid-item-width);
+  margin-top: 0px;
 }
 
 .product-grid-item p {
