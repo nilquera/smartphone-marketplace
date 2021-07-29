@@ -1,5 +1,6 @@
+import Context from "context/CartContext";
 import { usePostToCart } from "hooks";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 export default function ProductActions({ productDetails }) {
   const { colors, id } = productDetails;
@@ -7,6 +8,7 @@ export default function ProductActions({ productDetails }) {
   const [storage, setStorage] = useState("64");
   const [color, setColor] = useState(colors[0]);
   const { loading, trigger } = usePostToCart();
+  const { cartItems, setCartItems } = useContext(Context);
 
   const handleChangeStorage = (evt) => {
     setStorage(evt.target.value);
@@ -19,7 +21,7 @@ export default function ProductActions({ productDetails }) {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     const count = await trigger(1, 1, 1);
-    console.log(count);
+    setCartItems(cartItems + count);
   };
 
   return (
