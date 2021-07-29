@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "services";
+import { getProducts, setObjectCached, getObjectCached } from "services";
+
+const TTL = 1000 * 3600;
 
 export default function useFetchProducts() {
   const [loading, setLoading] = useState(false);
@@ -8,10 +10,18 @@ export default function useFetchProducts() {
   useEffect(() => {
     setLoading(true);
 
-    getProducts().then((products) => {
-      setProductList(products);
-      setLoading(false);
-    });
+    const cachedProductList = getObjectCached("cachedProductList");
+
+    if (cachedProductList) {
+      setProductList(cachedProductList);
+    } else {
+      getProducts().then((products) => {
+        setProductList(products);
+
+        setObjectCached("cachedProductList", products, TTL);
+      });
+    }
+    setLoading(false);
   }, []);
 
   return { loading, productList };

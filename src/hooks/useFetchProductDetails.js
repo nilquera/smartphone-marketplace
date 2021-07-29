@@ -1,5 +1,7 @@
 import { useEffect, useReducer } from "react";
-import { getProductDetails } from "services";
+import { getObjectCached, getProductDetails, setObjectCached } from "services";
+
+const TTL = 1000 * 3600;
 
 const initialState = {
   status: "idle",
@@ -32,11 +34,17 @@ export default function useFetchProductDetails({ id }) {
   useEffect(async () => {
     dispatch({ type: "LOADING" });
 
-    const productDetails = await getProductDetails(id);
+    let cachedProductDetails = getObjectCached(`cachedProductDetails-${id}`);
 
-    if (productDetails.code === 0)
-      dispatch({ type: "FETCH_ERROR", payload: "Error mio" });
-    else dispatch({ type: "FETCHED", payload: productDetails });
+    if (!cachedProductDetails) {
+      const productDetails = await getProductDetails(id);
+      setObjectCached(`cachedProductDetails-${id}`, productDetails, TTL);
+      cachedProductDetails = productDetails;
+    }
+
+    if (cachedProductDetails.code === 0)
+      dispatch({ type: "FETCH_ERROR", payload: cachedProductDetails.message });
+    else dispatch({ type: "FETCHED", payload: cachedProductDetails });
   }, [id]);
 
   return state;
