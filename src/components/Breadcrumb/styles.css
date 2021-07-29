@@ -1,8 +1,7 @@
-.breadcrumb {
-  background-color: aliceblue;
-  min-width: 40vmin;
+.header-breadcrumb {
+  width: 10vw;
 }
 
-.breadcrumb a {
+.header-breadcrumb a {
   margin-right: 10px;
 }

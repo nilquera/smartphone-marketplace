@@ -8,7 +8,7 @@ const routes = [
 
 export default function Breadcrumb() {
   return (
-    <div className="breadcrumb">
+    <div className="header-breadcrumb">
       {routes.map(({ path, name }, key) => {
         return (
           <Route

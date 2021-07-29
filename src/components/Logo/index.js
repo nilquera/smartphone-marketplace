@@ -3,8 +3,10 @@ import "./styles.css";
 
 export default function Logo() {
   return (
-    <a href="/">
-      <img className="logo" src={logoSrc} alt="smartphone-marketplace-logo" />
-    </a>
+    <div className="header-logo">
+      <a href="/">
+        <img src={logoSrc} alt="smartphone-marketplace-logo" />
+      </a>
+    </div>
   );
 }

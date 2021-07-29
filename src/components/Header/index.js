@@ -1,4 +1,4 @@
-import { Logo, Breadcrumb } from "components";
+import { Logo, Breadcrumb, Cart } from "components";
 import "./styles.css";
 
 export default function Header() {
@@ -6,6 +6,7 @@ export default function Header() {
     <header>
       <Logo />
       <Breadcrumb />
+      <Cart />
     </header>
   );
 }

@@ -1,5 +1,8 @@
-.logo {
-  margin-left: 20px;
+.header-logo {
+  flex-grow: 1;
+  margin-left: 30px;
+}
+
+.header-logo img {
   width: calc(35px + 8vmin);
-  background-color: aliceblue;
 }

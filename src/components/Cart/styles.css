@@ -1,0 +1,14 @@
+.header-cart {
+  margin-right: 6vw;
+  display: flex;
+  align-items: center;
+}
+
+.header-cart > img {
+  width: calc(23px + 1vmin);
+  margin-right: 2vw;
+}
+
+.header-cart > span {
+  font-size: calc(5px + 3vmin);
+}
