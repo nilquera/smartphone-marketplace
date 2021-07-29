@@ -1,0 +1,18 @@
+.productDetails-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.productDetails-image {
+  margin: 20px 25px;
+}
+
+.productDetails-side {
+  margin: 20px 25px;
+}
+
+.productDetails-info {
+}
+.productDetails-actions {
+}

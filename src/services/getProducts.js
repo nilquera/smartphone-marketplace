@@ -1,5 +1,6 @@
 import { API_URL } from "./settings";
 
 export default function getProducts() {
-  return fetch(API_URL).then((res) => res.json());
+  const url = `${API_URL}/product`;
+  return fetch(url).then((res) => res.json());
 }

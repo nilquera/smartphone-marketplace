@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer } from "react";
 import { getProductDetails } from "services";
 
 const initialState = {
@@ -12,7 +12,11 @@ const reducer = (state, action) => {
     case "LOADING":
       return { ...initialState, status: "loading" };
     case "FETCHED":
-      return { ...initialState, status: "fetched", data: action.payload };
+      return {
+        ...initialState,
+        status: "fetched",
+        productDetails: action.payload,
+      };
     case "FETCH_ERROR":
       return { ...initialState, status: "error", error: action.payload };
     case "IDLE":
