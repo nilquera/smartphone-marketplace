@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useFetchProducts } from "hooks";
 import "./styles.css";
 import ProductInList from "./ProductInList";
+import { Spinner } from "components";
 
 const ITEMS_PAGE = 9;
 
@@ -55,7 +56,7 @@ export default function ProductList() {
         />
       </div>
       {loading ? (
-        <h1>Loading</h1>
+        <Spinner />
       ) : (
         <>
           <div className="pagination">
