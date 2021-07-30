@@ -1,0 +1,17 @@
+.searchInput {
+  padding: 0px 20px;
+  width: 200px;
+  border-radius: 30px;
+  border: 1px solid #dcdcdc;
+  height: 45px;
+  font-size: 16px;
+}
+
+.searchInput:hover {
+  box-shadow: 1px 1px 8px 1px #dcdcdc;
+}
+
+.searchInput:focus-within {
+  box-shadow: 1px 1px 8px 1px #dcdcdc;
+  outline: none;
+}

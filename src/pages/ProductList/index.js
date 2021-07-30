@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useFetchProducts } from "hooks";
 import "./styles.css";
 import ProductInList from "./ProductInList";
-import { Spinner } from "components";
+import { Search, Spinner } from "components";
 
 const ITEMS_PAGE = 9;
 
@@ -48,13 +48,7 @@ export default function ProductList() {
   return (
     <div>
       <div className="search-container">
-        <input
-          className="searchInput"
-          placeholder="filter by brand or model"
-          value={search}
-          onChange={handleSearch}
-          type="text"
-        />
+        <Search value={search} handleSearch={handleSearch} />
       </div>
       {loading ? (
         <Spinner />
