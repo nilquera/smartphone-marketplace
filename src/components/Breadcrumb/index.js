@@ -30,12 +30,17 @@ export default function Breadcrumb() {
                 }));
 
               return (
-                <ul>
-                  {crumbs.map(({ name, path }) => {
-                    return <Crumb path={path} name={name} key={name} />;
-                    // return <li key={name}>{name}</li>;
+                <>
+                  <span>Home</span>
+                  {crumbs.map(({ name, path }, key) => {
+                    return (
+                      <>
+                        <span>{" / "}</span>
+                        <Crumb path={path} name={name} key={name} />
+                      </>
+                    );
                   })}
-                </ul>
+                </>
               );
             }}
           />

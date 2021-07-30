@@ -1,7 +1,13 @@
 .header-breadcrumb {
-  width: 10vw;
+  width: 180px;
+}
+
+.header-breadcrumb span {
+  color: #999;
 }
 
 .header-breadcrumb a {
-  margin-right: 10px;
+  text-decoration: none;
+  color: #3e3eb9d3;
+  transition: color ease-in-out 0.3s, background ease-in-out 0.2s;
 }

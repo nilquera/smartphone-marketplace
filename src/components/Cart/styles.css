@@ -7,8 +7,10 @@
 .header-cart > img {
   width: calc(23px + 1vmin);
   margin-right: 1vw;
+  opacity: 70%;
 }
 
 .header-cart > span {
   font-size: calc(15px + 0.2vw);
+  color: rgb(90, 90, 90);
 }
