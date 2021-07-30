@@ -1,11 +1,9 @@
 .productDetails-container {
-  margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-
   max-width: 800px;
-  margin: 3vh auto 100px auto;
+  margin: 3vh auto 20px auto;
   padding: 30px;
 }
 
@@ -20,12 +18,11 @@
 }
 
 .productDetails-image img {
-  /* width: 200px; */
   height: 265px;
 }
 
 .productDetails-side {
-  height: 265px;
+  /* height: 265px; */
   display: flex;
   flex-direction: column;
   /* margin: 50px 25px; */
@@ -33,6 +30,4 @@
 
 .productDetails-info {
   margin-bottom: 50px;
-}
-.productDetails-actions {
 }
