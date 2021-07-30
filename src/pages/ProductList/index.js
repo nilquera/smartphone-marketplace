@@ -15,6 +15,7 @@ export default function ProductList() {
 
   const handleSearch = (evt) => {
     setSearch(evt.target.value);
+    if (currentPage !== 0) setCurrentPage(0);
   };
 
   useEffect(() => {

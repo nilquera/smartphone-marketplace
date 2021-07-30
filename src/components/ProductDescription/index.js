@@ -1,3 +1,5 @@
+import "./styles.css";
+
 export default function ProductDescription({ productDetails }) {
   const {
     brand,
@@ -10,30 +12,45 @@ export default function ProductDescription({ productDetails }) {
     battery,
     primaryCamera,
     secondaryCmera,
-    dimentions,
-    weight,
   } = productDetails;
 
+  const productDetailsMainArray = [
+    brand,
+    model,
+    `${displayResolution} screen`,
+    `${primaryCamera} camera`,
+  ];
+
   const productDetailsArray = [
-    { name: "brand", info: brand },
-    { name: "model", info: model },
-    { name: "price", info: price },
     { name: "cpu", info: cpu },
     { name: "ram", info: ram },
     { name: "os", info: os },
-    { name: "displayResolution", info: displayResolution },
     { name: "battery", info: battery },
-    { name: "primaryCamera", info: primaryCamera },
     { name: "secondaryCmera", info: secondaryCmera },
-    { name: "dimentions", info: dimentions },
-    { name: "weight", info: weight },
+    { name: "price", info: price },
   ];
 
-  return productDetailsArray.map(({ name, info }, key) => {
-    return (
-      <p key={key}>
-        {name}: {info}
-      </p>
-    );
-  });
+  return (
+    <>
+      <div className="main-details">
+        {productDetailsMainArray.map((string, key) => {
+          return (
+            <span key={key}>
+              {string}
+              {key !== productDetailsMainArray.length - 1 && " · "}
+            </span>
+          );
+        })}
+      </div>
+      <div className="secondary-details">
+        {productDetailsArray.map(({ name, info }, key) => {
+          return (
+            <p key={key}>
+              {name}: {info}
+            </p>
+          );
+        })}
+      </div>
+    </>
+  );
 }

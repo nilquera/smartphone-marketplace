@@ -7,7 +7,8 @@ import { ProductActions, ProductDescription, ProductImage } from "components";
 export default function ProductDetails() {
   const { id } = useParams();
   const { status, error, productDetails } = useFetchProductDetails({ id });
-  const { imgUrl, model } = productDetails;
+  const { imgUrl, model, brand } = productDetails;
+  const title = `${brand} ${model}`;
 
   return (
     <div className="productDetails-container">
@@ -15,6 +16,7 @@ export default function ProductDetails() {
       {status === "error" && <h1>{error}</h1>}
       {status === "fetched" && (
         <>
+          <div className="productDetails-title">{title}</div>
           <div className="productDetails-image">
             <ProductImage src={imgUrl} alt={model} />
           </div>

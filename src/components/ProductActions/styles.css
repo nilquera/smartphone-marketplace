@@ -1,0 +1,33 @@
+form select {
+  width: 100px;
+  border: 1px solid #e8eaed;
+  border-radius: 5px;
+  padding: 7px 40px 7px 12px;
+  /* box-shadow: 0 1px 3px -2px #9098a9; */
+  font-size: 14px;
+  transition: all 1500ms ease;
+}
+
+form > label {
+  display: inline-block;
+  margin: 0 30px 30px 0;
+  color: #333;
+}
+form > label > select {
+  display: block;
+  margin-top: 10px;
+}
+
+form > input {
+  width: 100px;
+  height: 31px;
+  background-color: white;
+  border: 1px solid #e8eaed;
+  border-radius: 8px;
+  color: #1967d2;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  background-color: #e8f0fe;
+}
