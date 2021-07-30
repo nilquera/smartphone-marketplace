@@ -9,16 +9,26 @@ const initialState = {
   productDetails: {},
 };
 
+const parseDetails = (details) => {
+  const UNKNOWN_TEXT = "Check in store";
+  for (const detail in details) {
+    if (details[detail] === "") details[detail] = UNKNOWN_TEXT;
+  }
+  return details;
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "LOADING":
       return { ...initialState, status: "loading" };
-    case "FETCHED":
+    case "FETCHED": {
+      const parsedDetails = parseDetails(action.payload);
       return {
         ...initialState,
         status: "fetched",
-        productDetails: action.payload,
+        productDetails: parsedDetails,
       };
+    }
     case "FETCH_ERROR":
       return { ...initialState, status: "error", error: action.payload };
     case "IDLE":
