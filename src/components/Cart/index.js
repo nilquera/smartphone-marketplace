@@ -1,5 +1,4 @@
 import "./styles.css";
-import shopingCart from "assets/images/shopping-cart.svg";
 import Context from "context/CartContext";
 import { useContext } from "react";
 
@@ -8,7 +7,10 @@ export default function Cart() {
 
   return (
     <div className="header-cart">
-      <img src={shopingCart} alt="Icon made by Freepik from Flaticon" />
+      <img
+        src="https://icon-library.com/images/cart-icon-free/cart-icon-free-0.jpg"
+        alt="Shopping cart Icon"
+      />
       <span>{cartItems}</span>
     </div>
   );
