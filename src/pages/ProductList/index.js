@@ -51,7 +51,9 @@ export default function ProductList() {
         <Search value={search} handleSearch={handleSearch} />
       </div>
       {loading ? (
-        <Spinner />
+        <div className="spinner-container">
+          <Spinner />
+        </div>
       ) : (
         <>
           <div className="pagination">

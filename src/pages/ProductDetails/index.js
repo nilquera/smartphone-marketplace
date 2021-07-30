@@ -2,7 +2,12 @@ import "./styles.css";
 
 import { useParams } from "react-router-dom";
 import { useFetchProductDetails } from "hooks";
-import { ProductActions, ProductDescription, ProductImage } from "components";
+import {
+  ProductActions,
+  ProductDescription,
+  ProductImage,
+  Spinner,
+} from "components";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -12,7 +17,7 @@ export default function ProductDetails() {
 
   return (
     <div className="productDetails-container">
-      {status === "loading" && <h1>Loading</h1>}
+      {status === "loading" && <Spinner />}
       {status === "error" && <h1>{error}</h1>}
       {status === "fetched" && (
         <>

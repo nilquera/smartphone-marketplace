@@ -1,4 +1,4 @@
 import "./styles.css";
 export default function Spinner() {
-  return <div className="spinner">Loading</div>;
+  return <div className="spinner" />;
 }
